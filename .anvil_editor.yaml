@@ -1,8 +1,10 @@
 unique_ids:
   forms:
     Form1: C7LZQWU4KMX7IVKJ6YJDNEFMWLR6CSPE
+    Form1.RowTemplate1: '1713498570862638118292395.2357'
   modules: {}
   server_modules: {}
   assets:
+    new_file.js: '1713498274171915727211137.058'
     standard-page.html: XF2MFBYE4EV5LKEYUBX7VACPHKCCVBOS
     theme.css: W2BG373Z2NITL27AOTNLNBY4376P6QLW

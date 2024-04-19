@@ -16,23 +16,41 @@ components:
     properties: {align: center, text: 'RESULTS:', underline: true, bold: false}
     type: Label
     layout_properties: {grid_position: 'EHDASR,LDIIQO'}
-  - name: result_text
-    properties: {align: center, visible: false}
-    type: RichText
-    layout_properties: {grid_position: 'JXRVZB,HVJNAY'}
-  - name: label_1_copy
-    properties: {align: center, text: 'INSERT DATA BELOW:', underline: true, bold: false,
-      italic: false}
-    type: Label
-    layout_properties: {grid_position: 'FBDISP,MPCEWG'}
+  - name: result
+    properties: {align: center, enabled: false, height: 255, font_size: 12}
+    type: TextArea
+    layout_properties: {grid_position: 'KSVNJA,AEERMJ'}
+  - name: copy
+    properties: {text: Copy to Clipboard}
+    type: Button
+    layout_properties: {grid_position: 'GVMVXW,XIBRAA'}
+    event_bindings: {click: copy_click}
+  - name: xy_panel_1
+    properties: {height: 48}
+    type: XYPanel
+    layout_properties: {grid_position: 'HYCGIM,FSFUZX'}
+    components:
+    - name: label_1_copy
+      properties: {align: center, text: 'INSERT DATA BELOW:', underline: true, bold: false,
+        italic: false}
+      type: Label
+      layout_properties: {x: 344.328125, y: 12, width: 271}
+    - name: button_1
+      properties: {text: CLEAR, background: '', foreground: 'theme:Secondary 500'}
+      type: Button
+      layout_properties: {x: 756, y: 12, width: 200}
+      data_bindings: []
+      event_bindings: {click: button_1_click}
   - name: input_text_area
     properties: {height: 251}
     type: TextArea
     layout_properties: {grid_position: 'TCMADR,SXMRUY'}
+    event_bindings: {change: input_text_area_change}
   - name: button
     properties: {text: Submit, role: primary-color, spacing_above: medium}
     type: Button
     layout_properties: {grid_position: 'IUDMYM,VLBBYA'}
+    event_bindings: {click: button_click}
 - type: FlowPanel
   properties: {}
   name: navbar_links
