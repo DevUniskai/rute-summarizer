@@ -76,7 +76,7 @@ class Form1(Form1Template):
   
   def copy_click(self, **event_args):
     """This method is called when the button is clicked"""
+
     get_open_form().call_js("cpy", self.result.text)
     n = Notification("Copied to Clipboard", title="Status", style="success")
     n.show()
-    pass
