@@ -2,11 +2,14 @@
 // 	navigator.clipboard.writeText(text)
 // }  
 
-async function cpy(text) {
-  try {
-    await navigator.clipboard.writeText(text);
-    console.log('Page URL copied to clipboard');
-  } catch (err) {
-    console.error('Failed to copy: ', err);
+ function cpy(text) {
+
+  const newElement = document.createElement("textarea");
+  newElement.value = text;
+  console.log(text)
+  // newElement.style.visibility = "hidden";
+  document.body.appendChild(newElement);
+  newElement.select();
+  document.execCommand("copy");
+  document.body.removeChild(newElement);
   }
-}

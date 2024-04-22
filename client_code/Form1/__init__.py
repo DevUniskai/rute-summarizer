@@ -21,8 +21,8 @@ def handle_rute(text):
       temp_alamat = split_tab[0]
       continue
     
-    if idx == len(split_enter)-1:
-      counter_flag = 1
+    # if idx == len(split_enter)-1:
+    #   counter_flag = 1
 
     alamat = ' '.join(split_tab[0:length-5+counter_flag])
     nama = split_tab[length-5+counter_flag].strip()
