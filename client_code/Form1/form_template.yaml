@@ -4,14 +4,16 @@ container:
   properties: {html: '@theme:standard-page.html'}
 components:
 - type: ColumnPanel
-  properties: {}
+  properties: {col_widths: '{"BIIVPJ":30,"OTMRBD":30}'}
   name: content_panel
   layout_properties: {slot: default}
   components:
   - name: headline_1
-    properties: {role: headline, align: center, text: HARTA TAHTA RUTE, bold: true}
+    properties: {role: headline, align: center, text: HARTA TAHTA RUTE, bold: true,
+      underline: false, font: ''}
     type: Label
-    layout_properties: {grid_position: 'DFUGJV,BIIVPJ MKYDJZ,SJHCIY'}
+    layout_properties: {grid_position: 'MNXFCU,ONZDDP'}
+    data_bindings: []
   - name: copy
     properties: {text: Copy to Clipboard}
     type: Button
