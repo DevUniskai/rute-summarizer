@@ -8,28 +8,23 @@ def handle_rute(text):
   split_enter = text.strip().split("\n")
   temp_alamat = ""
   counter_flag = 0
-
-  today = date.today()
-  today_date = today.strftime("%d %B %Y")
-  today_date = str(today_date).upper()
-  output += "*RUTE UNISKAI " + today_date + "*\n\n\n"
   for idx, text in enumerate(split_enter):
     split_tab = text.split("\t")
+    print(split_tab)
     length = len(split_tab)
 
     if length == 1:
       temp_alamat = split_tab[0]
       continue
-    
-    # if idx == len(split_enter)-1:
-    #   counter_flag = 1
 
-    alamat = ' '.join(split_tab[0:length-5+counter_flag])
-    nama = split_tab[length-5+counter_flag].strip()
-    no_hp = split_tab[length-4+counter_flag]
-    keperluan = split_tab[length-3+counter_flag].strip()
-    pic = split_tab[length-2+counter_flag].strip()
-    # prioritas = split_tab[length-1+counter_flag].strip()
+    alamat = split_tab[0]
+    nama = split_tab[1].strip()
+    no_hp = split_tab[2]
+    keperluan = split_tab[3].strip()
+    pic = split_tab[4].strip()
+    prioritas=""
+    if(len(split_tab) == 6):
+      prioritas = split_tab[5].strip()
 
     if len(temp_alamat) > 0:
       alamat += temp_alamat + alamat
@@ -37,13 +32,15 @@ def handle_rute(text):
     output += str(flag+1) + " " + nama + "\n" + alamat + "\n"
     if len(no_hp) > 0:
       output += no_hp + "\n"
-    output += pic + " (" + keperluan + ")\n\n"
+    output += pic + " (" + keperluan + ")\n"
+
+    if len(prioritas) > 0:
+      output += "_"+ prioritas.upper() + "_\n"
+    output += "\n"
     flag+=1
-    
+
   return output
-
-
-
+  
 class Form1(Form1Template):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
