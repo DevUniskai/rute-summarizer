@@ -35,12 +35,12 @@ components:
         italic: false}
       type: Label
       layout_properties: {x: 344.328125, y: 12, width: 271}
-    - name: button_1
+    - name: clear_button
       properties: {text: CLEAR, background: '', foreground: 'theme:Secondary 500'}
       type: Button
       layout_properties: {x: 756, y: 12, width: 200}
       data_bindings: []
-      event_bindings: {click: button_1_click}
+      event_bindings: {click: clear_button_click}
   - name: input_text_area
     properties: {height: 251}
     type: TextArea

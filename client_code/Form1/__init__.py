@@ -1,5 +1,6 @@
 from ._anvil_designer import Form1Template
 from anvil import *
+from datetime import date
 
 def handle_rute(text):
   flag = 0
@@ -7,6 +8,11 @@ def handle_rute(text):
   split_enter = text.strip().split("\n")
   temp_alamat = ""
   counter_flag = 0
+
+  today = date.today()
+  today_date = today.strftime("%d %B %Y")
+  today_date = str(today_date).upper()
+  output += "*RUTE UNISKAI " + today_date + "*\n\n\n"
   for idx, text in enumerate(split_enter):
     split_tab = text.split("\t")
     length = len(split_tab)
@@ -36,6 +42,8 @@ def handle_rute(text):
     
   return output
 
+
+
 class Form1(Form1Template):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
@@ -51,25 +59,24 @@ class Form1(Form1Template):
     """This method is called when the button is clicked"""
     input = self.input_text_area.text
     if input:
-      print("masuk")
+      
       summary = None
       summary = handle_rute(input)
-      print("summary", summary)
+      # print("summary", summary)
       if summary:
         self.result.visible = True
         self.result.text = summary
         
     pass
 
+  def clear_button_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    self.input_text_area.text = ""
+    pass
+  
   def copy_click(self, **event_args):
     """This method is called when the button is clicked"""
     get_open_form().call_js("cpy", self.result.text)
     n = Notification("Copied to Clipboard", title="Status", style="success")
     n.show()
     pass
-
-  def button_1_click(self, **event_args):
-    """This method is called when the button is clicked"""
-    self.input_text_area.text = ""
-    pass
-    
