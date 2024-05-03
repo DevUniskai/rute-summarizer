@@ -4,7 +4,10 @@ from datetime import date
 
 def handle_rute(text):
   flag = 0
-  output = ""
+  today = date.today()
+
+  output = "*RUTE UNISKAI " + today.strftime("%d-%b-%Y").upper() + "*\n\n"
+  
   split_enter = text.strip().split("\n")
   temp_alamat = ""
   counter_flag = 0
